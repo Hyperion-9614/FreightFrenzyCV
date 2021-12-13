@@ -22,9 +22,12 @@ cv2.createTrackbar('h2','result2', 0, 255, nothing)
 cv2.createTrackbar('s2','result2', 0, 255, nothing)
 cv2.createTrackbar('v2','result2', 0, 255, nothing)
 
-cap = cv2.VideoCapture("http://192.168.1.242:4747/video")
-
+# cap = cv2.VideoCapture("http://192.168.1.242:4747/video")
+cap = cv2.VideoCapture(1)
+cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 960)
 def detectCube(frame):
+    frame = frame[326:960, 0:1280]
     # Convert BGR to HSV
     hsv = cv2.GaussianBlur(frame, (5, 5), cv2.BORDER_DEFAULT)
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
@@ -94,13 +97,14 @@ def detectCube(frame):
         )
 
     # image_masked = cv2.bitwise_and(frame, frame, mask = masked)
-    return [frame, res]
+    return [frame, res, masked]
 
 
 while True:
     ret, frame = cap.read()
     cv2.imshow("frame", detectCube(frame)[0])
-    cv2.imshow("mask frame", detectCube(frame)[1])
+    cv2.imshow("bitwise and", detectCube(frame)[1])
+    cv2.imshow("masked", detectCube(frame)[2])
     if cv2.waitKey(1) & 0xFF == ord("q"):
         break
 cv2.destroyAllWindows()
