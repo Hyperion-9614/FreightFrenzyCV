@@ -75,4 +75,4 @@ class ColorTuner:
 
 
 if __name__ == "__main__":
-    colorTuner = ColorTuner('/Users/aditya/Programming/FTC/yellow.JPG', 1)
+    colorTuner = ColorTuner('/Users/aditya/Programming/FreightFrenzyCV/data/IMG_4764.JPG', 1)
