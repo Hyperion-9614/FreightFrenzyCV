@@ -1,1 +1,2 @@
 testing/EOCV-Sim-3.3.2-all.jar filter=lfs diff=lfs merge=lfs -text
+testing/EOCV-Sim-3.4.0-all.jar filter=lfs diff=lfs merge=lfs -text
