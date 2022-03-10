@@ -8,7 +8,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.deltacv:EOCV-Sim:Common:3.3.2'
+    implementation 'com.github.deltacv:EOCV-Sim:Common:3.4.0'
     implementation 'org.openpnp:opencv:4.5.1-2'
     implementation 'com.github.deltacv:AprilTagDesktop:1.1.1'
 }
